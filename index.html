@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Album</title>
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="styles.css">
+  <script type="html/text" id="albumCoverTemplate">
+    <article rel = "<%= albumId %>" class="albumRef">
+      <h3><%= albumName %></h3>
+      <img src="<%= albumCover %>" alt="" />
+    </article>
+  </script>
+  <script id="buttonTemplate" type = "html/text">
+    <article class="buttons">
+        <button id = 'navButton' type="button"><%= albumName %></button>
+    </article>
+  </script>
+  <script type = "html/text" id="albumTemplate">
+
+    <article rel="<%= relNum %>" class="specificAlbum">
+      <div class="albumView">
+        <h3><%= photoName %></h3>
+        <img src="<%= photoCover %>" alt="" />
+      </div>
+    </article>
+  </script>
+</head>
+<body>
+  <div class="landingPage">
+    <header><h1>Blake's Photo Album</h1></header>
+    <div class="albumContainer  ">
+      <!-- albums append here -->
+    </div>
+  </div>
+
+
+
+
+
+
+
+    <div class="photoDisplay">
+        <section class="album1 hidden">
+          <!--Album 1 photos go here -->
+        </section>
+
+        <section class="album2 hidden">
+          <!--Album 2 photos go here -->
+        </section>
+        <section class="album3 hidden">
+          <!--Album 3 photos go here -->
+        </section>
+        <section class="album4 hidden">
+          <!--Album 4 photos go here -->
+        </section>
+        <section class="album5 hidden">
+          <!--Album 5 photos go here -->
+        </section>
+        <section class="album6 hidden">
+          <!--Album 6 photos go here -->
+        </section>
+    </div>
+
+
+    <div class = "individualPhotoViewer">
+       <!--Individual photos will go here-->
+    </div>
+
+
+
+
+
+  <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="bower_components/underscore/underscore.js" charset="utf-8"></script>
+  <script src="data.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+
+</body>
+</html>

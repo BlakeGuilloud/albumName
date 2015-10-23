@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  justify-content: center; }
+
+.albumContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+.singlePic {
+  display: flex;
+  justify-content: center; }
+  .singlePic img {
+    width: 500px; }
+
+nav {
+  display: flex;
+  flex-direction: column; }
+  nav button {
+    width: 100px; }
+
+.buttons {
+  display: flex;
+  justify-content: space-around; }
+
+.hidden {
+  display: none; }
+
+.active {
+  display: flex; }
+
+/*# sourceMappingURL=styles.css.map */
