@@ -2,6 +2,10 @@ header {
   display: flex;
   justify-content: center; }
 
+body {
+  width: 80%;
+  margin: 0 auto; }
+
 .albumContainer {
   display: flex;
   justify-content: space-around;
@@ -10,19 +14,17 @@ header {
 section {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
+
+img {
+  width: 300px; }
 
 .singlePic {
   display: flex;
   justify-content: center; }
   .singlePic img {
     width: 500px; }
-
-nav {
-  display: flex;
-  flex-direction: column; }
-  nav button {
-    width: 100px; }
 
 .buttons {
   display: flex;
@@ -33,5 +35,19 @@ nav {
 
 .active {
   display: flex; }
+
+.navBar {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  align-items: center; }
+  .navBar li {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 1px;
+    background-color: #6969aa;
+    color: white;
+    width: 20%; }
 
 /*# sourceMappingURL=styles.css.map */

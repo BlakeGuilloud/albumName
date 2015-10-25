@@ -22,6 +22,19 @@ $(document).ready(function(){
   });
     $('.button').html(buttonHTML);
 
+  var navTmpl = _.template($('#nav').html());
+  navHTML = "";
+  _.each(albumsData, function(currVal){
+    navHTML += navTmpl(currVal);
+  });
+    $('.navBar').html(navHTML);
+
+
+  $('.homeButton').on('click', function(event){
+    event.preventDefault;
+    location.reload();
+  });
+
   $('.albumRef').on('click', function(event){
     event.preventDefault();
     clickedAlbum = "." + $(this).attr('class')
@@ -33,7 +46,8 @@ $(document).ready(function(){
     $(selectedAlbum).removeClass('hidden');
     $('nav').toggleClass('hidden');
     $('#navButton').removeClass('hidden');
-    console.log(this)
+    console.log(this);
+    $('.navBar').addClass('navBarAlbum');
   });
 
 
@@ -80,14 +94,26 @@ $(document).ready(function(){
     $('#navButton').removeClass('hidden');
   });
 
+  $('.navBar li').on('click', function(event){
+    event.preventDefault();
+    pickedAlbum = "." + $(this).attr('rel');
+    console.log(pickedAlbum);
+    $(pickedAlbum).toggleClass('hidden');
+    $(pickedAlbum).siblings('').addClass('hidden');
+    $('.albumContainer').addClass('hidden');
+  });
 
 
+
+
+
+  });
 
   ///////// BUTTONS ///////
 
 
 
-  });
+
 
 
   // var photoTmpl = _.template($('#albumTemplate').html());
