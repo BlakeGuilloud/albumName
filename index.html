@@ -5,31 +5,8 @@
   <title>Photo Album</title>
   <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
   <link rel="stylesheet" href="styles.css">
-  <script type="html/text" id="albumCoverTemplate">
-    <article rel = "<%= albumId %>" class="albumRef">
-      <h3><%= albumName %></h3>
-      <img src="<%= albumCover %>" alt="" />
-    </article>
-  </script>
-  <script id="buttonTemplate" type = "html/text">
-    <article class="buttons">
-        <button id = 'navButton' type="button"><%= albumName %></button>
-    </article>
-  </script>
-  <script type = "html/text" id="albumTemplate">
 
-    <article rel="<%= relNum %>" class="specificAlbum">
-      <div class="albumView">
-        <h3><%= photoName %></h3>
-        <img src="<%= photoCover %>" alt="" />
-      </div>
-    </article>
-  </script>
-  <script type = "html/text" id="nav">
 
-      <li rel = "<%= albumId %>"><%= albumName %></li>
-
-  </script>
 </head>
 <body>
     <div class="landingPage">
@@ -76,6 +53,7 @@
   <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
   <script src="bower_components/underscore/underscore.js" charset="utf-8"></script>
   <script src="data.js" charset="utf-8"></script>
+  <script src="templates.js" charset="utf-8"></script>
   <script src="app.js" charset="utf-8"></script>
 
 </body>
