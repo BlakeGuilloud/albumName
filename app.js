@@ -1,26 +1,23 @@
 $(document).ready(function(){
-  photoPage.init();
+  page.init();
 });
-var albumTmpl = _.template($('#albumCoverTemplate').html());
-var buttonTmpl = _.template($('#buttonTemplate').html());
-var navTmpl = _.template($('#nav').html());
-var photoTmpl = _.template($('#albumTemplate').html());
+// var albumTmpl = _.template(templates.albumTemplate);
+// var buttonTmpl = _.template(templates.buttonTemplate);
+// var navTmpl = _.template(templates.nav);
+// var photoTmpl = _.template(templates.albumCoverTemplate);
 
 
-var photoPage = {
+var page = {
   init: function(){
-    photoPage.styling();
-    photoPage.events();
+    page.styling();
+
+    page.events();
   },
-
-///////////////////////// TEMPLATES ///////////////////////////
-
   events: function(){
     $('.specificAlbum').on('click', function(event){
       event.preventDefault();
       $(this).siblings('').toggleClass('hidden');
       $(this).toggleClass('singlePic');
-      $('#navButton').removeClass('hidden');
     });
     $('.navBar li').on('click', function(event){
       event.preventDefault();
@@ -47,59 +44,50 @@ var photoPage = {
   },
   styling: function(){
 
-  albumHTML = "";
-  _.each(albumsData, function(currVal, idx, arr){
-    albumHTML += albumTmpl(currVal);
-  });
-    $('.albumContainer').html(albumHTML);
+    _.each(albumsData, function(currVal, idx, arr){
+      page.loadTemplate('.albumContainer',currVal,'albumCoverTemplate')
+    });
 
-  buttonHTML = "";
-  _.each(albumsData, function(currVal){
-    buttonHTML += buttonTmpl(currVal);
-  });
-    $('.button').html(buttonHTML);
+    // var buttonHTML = "";
+    // _.each(albumsData, function(currVal){
+    //   buttonHTML += buttonTmpl(currVal);
+    // });
+    //   $('.button').html(buttonHTML);
+    _.each(albumsData, function(currVal){
+      page.loadTemplate('.navBar',currVal,'nav')
+    });
 
-  navHTML = "";
-  _.each(albumsData, function(currVal){
-    navHTML += navTmpl(currVal);
-  });
-    $('.navBar').html(navHTML);
 
-////////CANNOT ITTERATE I FEEL LIKE FAILURE!!/////DATA LAYOUT NEEDS TO BE CHANGED //
-  photoHTML = "";
-  _.each(album1, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album1').append(photoHTML)
-  photoHTML = "";
-  _.each(album2, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album2').append(photoHTML)
-  photoHTML = "";
-  _.each(album3, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album3').append(photoHTML)
-  photoHTML = "";
-  _.each(album4, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album4').append(photoHTML)
-  photoHTML = "";
-  _.each(album5, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album5').append(photoHTML)
-  photoHTML = "";
-  _.each(album6, function(currVal, idx, arr){
-    photoHTML += photoTmpl(currVal)
-  });
-  $('.album6').append(photoHTML)
-},
+
+  ////////CANNOT ITTERATE I FEEL LIKE FAILURE!!/////DATA LAYOUT NEEDS TO BE CHANGED //
+    _.each(album1, function(currVal, idx, arr){
+      page.loadTemplate('.album1',currVal, 'albumTemplate')
+    });
+    _.each(album2, function(currVal, idx, arr){
+      page.loadTemplate('.album2',currVal, 'albumTemplate')
+    });
+    _.each(album3, function(currVal, idx, arr){
+      page.loadTemplate('.album3',currVal, 'albumTemplate')
+    });
+    _.each(album4, function(currVal, idx, arr){
+      page.loadTemplate('.album4',currVal, 'albumTemplate')
+    });
+    _.each(album5, function(currVal, idx, arr){
+      page.loadTemplate('.album5',currVal, 'albumTemplate')
+    });
+    _.each(album6, function(currVal, idx, arr){
+      page.loadTemplate('.album6',currVal, 'albumTemplate')
+    });
+  },
+
+  loadTemplate: function(el, data, tmpl) {
+    var template = _.template(templates[tmpl]);
+    var html = template(data);
+    $(el).append(html);
+  }
+
+
+
 }
-
-
-
 
 ////////////////// PHOTO TEMPLATE NEEDS REFACTOR ///////////////// BUT FUCK THAT
